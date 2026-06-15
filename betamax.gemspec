@@ -6,11 +6,10 @@ Gem::Specification.new do |spec|
   spec.authors = ["John DeSilva"]
   spec.email = ["john@aesthetikx.info"]
 
-  spec.summary = "TODO: Write a short summary, because RubyGems requires one."
-  spec.description = "TODO: Write a longer description or delete this line."
+  spec.summary = "Record and playback of arbitrary Ruby objects"
+  spec.description = "Betamax allows for the recording and playback of arbitrary Ruby objects to simplify testing external dependencies" # rubocop:disable Layout/LineLength
   spec.homepage = "https://github.com/Aesthetikx/betamax"
   spec.required_ruby_version = ">= 3.2.0"
-  spec.metadata["allowed_push_host"] = "TODO: Set to your gem server 'https://example.com'"
   spec.metadata["homepage_uri"] = spec.homepage
   spec.metadata["source_code_uri"] = "https://github.com/Aesthetikx/betamax"
   spec.metadata["changelog_uri"] = "https://github.com/Aesthetikx/betamax/blob/main/CHANGELOG.md"
