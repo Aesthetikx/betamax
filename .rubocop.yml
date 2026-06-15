@@ -1,3 +1,6 @@
+inherit_from:
+  - https://raw.githubusercontent.com/Aesthetikx/fun_center/master/fun_center.yaml
+
 plugins:
   - rubocop-rake
   - rubocop-rspec
@@ -5,6 +8,12 @@ plugins:
 AllCops:
   NewCops: enable
   TargetRubyVersion: 3.2
+
+Style/Documentation:
+  Enabled: false
+
+Style/FrozenStringLiteralComment:
+  Enabled: false
 
 Style/StringLiterals:
   EnforcedStyle: double_quotes
