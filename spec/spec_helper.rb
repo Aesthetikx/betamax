@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 require "betamax"
 
 RSpec.configure do |config|
