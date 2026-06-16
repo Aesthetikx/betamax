@@ -1,6 +1,6 @@
 # Betamax
 
-Betamax allows for the recording and playback of arbitrary Ruby objects to simplify testing external dependencies.
+Betamax allows for the recording and playback of arbitrary Ruby objects to simplify testing external dependencies. Think of it like the [VCR](https://github.com/vcr/vcr) gem, but for any complicated object, not just HTTP interactions. This gem was originally developed to write a test suite for a MiniDisc NetMD Walkman library, where the recording and playback of real USB traffic was desired.
 
 ## Installation
 
@@ -18,7 +18,34 @@ gem install betamax
 
 ## Usage
 
-TODO: Write usage instructions here
+Currently this gem supports testing with RSpec. First, require the gem in your spec helper:
+
+```ruby
+# File: spec/spec_helper.rb
+
+require 'betamax'
+```
+
+Then, record an object. The first time you run your test, a recording will be created in `spec/betamax_tapes/`. Subsequent test runs will playback from your recording. Make sure to tag your example as `:betamax` to enable recording and playback.
+
+```ruby
+RSpec.describe 'a MiniDisc device' do
+  let(:walkman) do
+    usb_device = LibUSB::Context.devices(idProduct: 0x0084).first
+
+    MiniDisc::Device.new usb_device: Betamax.record(usb_device)
+  end
+
+  it 'has a tracklist', :betamax do
+    walkman.open do |disc|
+      disc.tracks.first.title.should == 'Song of the Highwire Shrimper'
+    end
+  end
+end
+
+```
+
+In the above example, the test will continue to work even if the USB device is no longer present. If for some reason changes to your code change the interaction with your recorded object, your test will fail. This could be because methods were called in a different order, block arguments changed, method calls were expected but did not take place, etc.
 
 ## Development
 
