@@ -1,5 +1,5 @@
-require "fileutils"
-require "yaml"
+require 'fileutils'
+require 'yaml'
 
 module Betamax
   class Tape
@@ -20,11 +20,11 @@ module Betamax
 
     def self.from_rspec_example example, tapes_folder:
       name = cassette_name_for example.metadata
-      name.gsub! "::", "_"
-      name.gsub!(/[\s-]+/, "_")
-      name.gsub! %r{[^a-zA-Z0-9_/]}, ""
+      name.gsub! '::', '_'
+      name.gsub!(/[\s-]+/, '_')
+      name.gsub! %r{[^a-zA-Z0-9_/]}, ''
 
-      filename = Pathname.new(name).sub_ext ".yaml"
+      filename = Pathname.new(name).sub_ext '.yaml'
       full_path = tapes_folder / filename
 
       new full_path
@@ -44,7 +44,7 @@ module Betamax
         current = current[:parent_example_group]
       end
 
-      description_parts.join "/"
+      description_parts.join '/'
     end
 
     def load
@@ -66,7 +66,7 @@ module Betamax
         version: Recording::VERSION,
         objects: { default: proxy }
 
-      File.open @path, "w" do |file|
+      File.open @path, 'w' do |file|
         file.puts recording.to_yaml
       end
     end

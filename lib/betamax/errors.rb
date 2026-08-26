@@ -3,7 +3,7 @@ module Betamax
     class Error < StandardError; end
 
     class NoTapeInserted < Error
-      def initialize message = "No tape inserted"
+      def initialize message = 'No tape inserted'
         super
       end
     end
@@ -51,7 +51,7 @@ module Betamax
 
     class UnusedRecordings < PlaybackError
       def initialize unused_methods
-        method_names = unused_methods.map(&:method_name).join(", ")
+        method_names = unused_methods.map(&:method_name).join(', ')
         super "Recording has #{unused_methods.size} unused method(s): #{method_names}"
       end
     end

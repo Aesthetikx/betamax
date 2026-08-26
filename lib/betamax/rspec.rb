@@ -1,6 +1,6 @@
 module Betamax
   module RSpec
-    DEFAULT_TAPES_FOLDER = Pathname.new "spec/betamax_tapes/"
+    DEFAULT_TAPES_FOLDER = Pathname.new 'spec/betamax_tapes/'
 
     def play_rspec example, tapes_folder: DEFAULT_TAPES_FOLDER
       Player.new(example, tapes_folder:).play

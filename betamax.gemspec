@@ -1,19 +1,19 @@
-require_relative "lib/betamax/version"
+require_relative 'lib/betamax/version'
 
 Gem::Specification.new do |spec|
-  spec.name = "betamax"
+  spec.name = 'betamax'
   spec.version = Betamax::VERSION
-  spec.authors = ["John DeSilva"]
-  spec.email = ["john@aesthetikx.info"]
+  spec.authors = ['John DeSilva']
+  spec.email = ['john@aesthetikx.info']
 
-  spec.summary = "Record and playback of arbitrary Ruby objects"
-  spec.description = "Betamax allows for the recording and playback of arbitrary Ruby objects to simplify testing external dependencies" # rubocop:disable Layout/LineLength
-  spec.homepage = "https://github.com/Aesthetikx/betamax"
-  spec.required_ruby_version = ">= 3.3"
-  spec.metadata["homepage_uri"] = spec.homepage
-  spec.metadata["source_code_uri"] = "https://github.com/Aesthetikx/betamax"
-  spec.metadata["changelog_uri"] = "https://github.com/Aesthetikx/betamax/blob/main/CHANGELOG.md"
-  spec.metadata["rubygems_mfa_required"] = "true"
+  spec.summary = 'Record and playback of arbitrary Ruby objects'
+  spec.description = 'Betamax allows for the recording and playback of arbitrary Ruby objects to simplify testing external dependencies' # rubocop:disable Layout/LineLength
+  spec.homepage = 'https://github.com/Aesthetikx/betamax'
+  spec.required_ruby_version = '>= 3.3'
+  spec.metadata['homepage_uri'] = spec.homepage
+  spec.metadata['source_code_uri'] = 'https://github.com/Aesthetikx/betamax'
+  spec.metadata['changelog_uri'] = 'https://github.com/Aesthetikx/betamax/blob/main/CHANGELOG.md'
+  spec.metadata['rubygems_mfa_required'] = 'true'
 
   # Specify which files should be added to the gem when it is released.
   # The `git ls-files -z` loads the files in the RubyGem that have been added into git.
@@ -24,9 +24,9 @@ Gem::Specification.new do |spec|
         f.start_with?(*%w[bin/ Gemfile .gitignore .rspec spec/ .rubocop.yml])
     end
   end
-  spec.bindir = "exe"
+  spec.bindir = 'exe'
   spec.executables = spec.files.grep(%r{\Aexe/}) { |f| File.basename f }
-  spec.require_paths = ["lib"]
+  spec.require_paths = ['lib']
 
   # Uncomment to register a new dependency of your gem
   # spec.add_dependency "example-gem", "~> 1.0"
