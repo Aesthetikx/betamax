@@ -9,7 +9,7 @@ Gem::Specification.new do |spec|
   spec.summary = "Record and playback of arbitrary Ruby objects"
   spec.description = "Betamax allows for the recording and playback of arbitrary Ruby objects to simplify testing external dependencies" # rubocop:disable Layout/LineLength
   spec.homepage = "https://github.com/Aesthetikx/betamax"
-  spec.required_ruby_version = ">= 3.2.0"
+  spec.required_ruby_version = ">= 3.3"
   spec.metadata["homepage_uri"] = spec.homepage
   spec.metadata["source_code_uri"] = "https://github.com/Aesthetikx/betamax"
   spec.metadata["changelog_uri"] = "https://github.com/Aesthetikx/betamax/blob/main/CHANGELOG.md"
