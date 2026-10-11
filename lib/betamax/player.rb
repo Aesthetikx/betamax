@@ -13,6 +13,8 @@ module Betamax
       insert_tape
       @example.run
       eject_tape unless @example.exception
+    ensure
+      Fiber[:betamax_player] = nil
     end
 
     def record object
