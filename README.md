@@ -47,9 +47,30 @@ end
 
 In the above example, the test will continue to work even if the USB device is no longer present. If for some reason changes to your code change the interaction with your recorded object, your test will fail. This could be because methods were called in a different order, block arguments changed, method calls were expected but did not take place, etc.
 
+### Minitest
+
+Include `Betamax::Minitest` in your test class and surround the recorded interaction with `with_betamax`. Tapes are named after the test class and method and stored in `test/betamax_tapes/` (override with `tapes_folder:`).
+
+```ruby
+class WalkmanTest < Minitest::Test
+  include Betamax::Minitest
+
+  def test_tracklist
+    with_betamax do
+      usb_device = LibUSB::Context.devices(idProduct: 0x0084).first
+      walkman = MiniDisc::Device.new usb_device: Betamax.record(usb_device)
+
+      walkman.open do |disc|
+        assert_equal 'Song of the Highwire Shrimper', disc.tracks.first.title
+      end
+    end
+  end
+end
+```
+
 ## Development
 
-After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake spec` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
+After checking out the repo, run `bin/setup` to install dependencies. Then, run `bundle exec rake` to run the RSpec and Minitest suites and RuboCop. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
 
 To install this gem onto your local machine, run `bundle exec rake install`. To release a new version, update the version number in `version.rb`, and then run `bundle exec rake release`, which will create a git tag for the version, push git commits and the created tag, and push the `.gem` file to [rubygems.org](https://rubygems.org).
 
