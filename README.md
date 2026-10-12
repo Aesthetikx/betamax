@@ -18,7 +18,11 @@ gem install betamax
 
 ## Usage
 
-Currently this gem supports testing with RSpec. First, require the gem in your spec helper:
+Currently this gem supports testing with RSpec or Minitest.
+
+### RSpec
+
+First, require the gem in your spec helper:
 
 ```ruby
 # File: spec/spec_helper.rb
